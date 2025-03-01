@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import PatientForm from "./components/PatientForm";
+import { Button } from "@/components/ui/button"
 
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-100">
-      <h1 className="text-4xl font-bold text-blue-800">¡Tailwind está funcionando con TypeScript! 🚀</h1>
+    <div className="bg-warning text-warning-foreground">
+      <Button variant="secondary">Secondary</Button>
     </div>
   );
 }
-
-export default App
+export default App;
