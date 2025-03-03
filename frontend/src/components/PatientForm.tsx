@@ -43,19 +43,32 @@ const PatientForm = () => {
   });
 
   const onSubmit = async (data: PatientFormData) => {
-    const response = await fetch("http://127.0.0.1:8000/patients/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    try {
+      const response = await fetch("http://127.0.0.1:8000/patients/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    if (response.ok) {
-      alert("Patient created successfully!");
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (response.status === 400 && errorData.detail === "Patient with this ID already exists") {
+          form.setError("name", {
+            type: "manual",
+            message: "This patient already exists",
+          });
+          return;
+        }
+        throw new Error(errorData.detail || "Failed to create patient");
+      }
+
+      alert("Patient created successfully");
       form.reset();
-    } else {
-      alert("Failed to create patient.");
+    } catch (error) {
+      console.error(error);
+      alert("Patient already registered");
     }
   };
 
