@@ -2,5 +2,8 @@
   "devDependencies": {
     "@types/node": "^22.13.8",
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.54.2"
   }
 }
