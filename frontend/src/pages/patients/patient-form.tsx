@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Form, FormItem, FormLabel, FormControl, FormMessage } from "./ui/form";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Form, FormItem, FormLabel, FormControl, FormMessage } from "../../components/ui/form";
 
 interface PatientFormData {
   id: number;
