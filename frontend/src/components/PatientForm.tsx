@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Form, FormItem, FormLabel, FormControl, FormMessage } from "./ui/form";
 
 interface PatientFormData {
+  id: number;
   name: string;
   age: number;
   weight: number;
@@ -13,6 +14,7 @@ interface PatientFormData {
 }
 
 const fieldLabels: Record<keyof PatientFormData, string> = {
+  id: "Patient ID",
   name: "Name",
   age: "Age",
   weight: "Weight",
@@ -21,7 +23,8 @@ const fieldLabels: Record<keyof PatientFormData, string> = {
 };
 
 const fieldUnits: Record<keyof PatientFormData, string> = {
-  name: "",
+  id: "Patient's ID",
+  name: "Patient's Name",
   age: "Age in years",
   weight: "Weight in Kg (Kilograms)",
   height: "Height in Cm (Centimeters)",
@@ -58,7 +61,7 @@ const PatientForm = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-50">
-      <Card className="w-full max-w-md bg-neutral-950 border border-neutral-700">
+      <Card className="w-full max-w-md bg-neutral-950 border border-neutral-800">
         <CardHeader>
           <CardTitle className="text-left text-2xl text-neutral-50">Register Patient</CardTitle>
           <p className="text-left text-sm text-neutral-400">Enter your patient details below to register it in the database.</p>
@@ -84,7 +87,7 @@ const PatientForm = () => {
                   <FormMessage />
                 </FormItem>
               ))}
-              <Button type="submit" className="w-full bg-amber-400 hover:bg-amber-300 text-neutral-950">
+              <Button type="submit" className="w-full bg-neutral-50 hover:bg-amber-400 text-neutral-950">
                 Register
               </Button>
             </form>

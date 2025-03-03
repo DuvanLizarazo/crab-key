@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
 class PatientBase(BaseModel):
+    id: str
     name: str
     age: int
     weight: float
@@ -11,7 +12,7 @@ class PatientCreate(PatientBase):
     pass
 
 class PatientResponse(PatientBase):
-    id: int
+    id: str
 
     class Config:
         from_attributes = True
