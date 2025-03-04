@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="statistics/statistics" element={<Statistics />} />
-          <Route path="patients/register" element={<PatientForm />} />
+          <Route path="Dashboard/Statistics" element={<Statistics />} />
+          <Route path="/Patients/Register" element={<PatientForm />} />
         </Route>
       </Routes>
     </BrowserRouter>

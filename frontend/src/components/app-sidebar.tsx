@@ -28,7 +28,7 @@ const data = {
   user: {
     name: "Dr Diego Estupiñan",
     email: "diego@example.com",
-    avatar: "./././public/dr-diego.jpg",
+    avatar: "/avatars/dr-diego.jpg",
   },
   
   navMain: [
@@ -40,7 +40,7 @@ const data = {
       items: [
         {
           title: "Statistics",
-          url: "statistics/statistics",
+          url: "/Dashboard/Statistics",
         },
         {
           title: "Programmed Medicine",
@@ -63,7 +63,7 @@ const data = {
         },
         {
           title: "Register",
-          url: "/patients/register",
+          url: "/Patients/Register",
         },
       ],
     },
