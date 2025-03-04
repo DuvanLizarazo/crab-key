@@ -10,7 +10,7 @@ interface PatientFormData {
   age: number;
   weight: number;
   height: number;
-  body_surface_area: number;
+  //body_surface_area: number;
 }
 
 const fieldLabels: Record<keyof PatientFormData, string> = {
@@ -19,7 +19,7 @@ const fieldLabels: Record<keyof PatientFormData, string> = {
   age: "Age",
   weight: "Weight",
   height: "Height",
-  body_surface_area: "Body Surface Area",
+  //body_surface_area: "Body Surface Area",
 };
 
 const fieldUnits: Record<keyof PatientFormData, string> = {
@@ -28,7 +28,7 @@ const fieldUnits: Record<keyof PatientFormData, string> = {
   age: "Age in years",
   weight: "Weight in Kg (Kilograms)",
   height: "Height in Cm (Centimeters)",
-  body_surface_area: "Area in square meters (m²)",
+  //body_surface_area: "Area in square meters (m²)",
 };
 
 const PatientForm = () => {
@@ -38,7 +38,7 @@ const PatientForm = () => {
       age: 0,
       weight: 0,
       height: 0,
-      body_surface_area: 0,
+      //body_surface_area: 0,
     },
   });
 

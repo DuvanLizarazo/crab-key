@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from backend.app.models.patient import Patient
 from backend.app.schemas.patient import PatientCreate
+from backend.app.utils.bsa_calculator import calculate_bsa
 from cryptography.fernet import Fernet
 import os
 import hashlib
@@ -24,6 +25,9 @@ def create_patient(db: Session, patient: PatientCreate):
     hashed_id = hash_id(patient.id)
     encrypted_name = cipher.encrypt(patient.name.encode()).decode()
 
+    # Calculate BSA
+    body_surface_area = calculate_bsa(patient.weight, patient.height)
+
     db_patient = Patient(
         id=encrypted_id,
         id_hash=hashed_id,
@@ -31,7 +35,7 @@ def create_patient(db: Session, patient: PatientCreate):
         age=patient.age,
         weight=patient.weight,
         height=patient.height,
-        body_surface_area=patient.body_surface_area
+        body_surface_area=body_surface_area
     )
     db.add(db_patient)
     db.commit()

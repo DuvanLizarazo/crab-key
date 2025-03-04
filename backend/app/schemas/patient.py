@@ -6,7 +6,7 @@ class PatientBase(BaseModel):
     age: int
     weight: float
     height: float
-    body_surface_area: float
+    #body_surface_area: float
 
 class PatientCreate(PatientBase):
     pass
