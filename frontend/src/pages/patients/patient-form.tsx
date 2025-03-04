@@ -73,15 +73,15 @@ const PatientForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-50">
-      <Card className="w-full max-w-md bg-neutral-950 border border-neutral-800">
+    <div className="flex items-center h-full justify-center bg-neutral-950 text-neutral-50">
+      <Card className="w-full max-w-2xl bg-neutral-950 border border-neutral-800">
         <CardHeader>
           <CardTitle className="text-left text-2xl text-neutral-50">Register Patient</CardTitle>
           <p className="text-left text-sm text-neutral-400">Enter your patient details below to register it in the database.</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {Object.keys(fieldLabels).map((field) => (
                 <FormItem key={field}>
                   <FormLabel className="text-sm font-medium text-neutral-50 capitalize">
@@ -100,9 +100,11 @@ const PatientForm = () => {
                   <FormMessage />
                 </FormItem>
               ))}
-              <Button type="submit" className="w-full bg-neutral-50 hover:bg-amber-400 text-neutral-950">
-                Register
-              </Button>
+              <div className="md:col-span-2">
+                <Button type="submit" className="w-full bg-neutral-50 hover:bg-amber-400 text-neutral-950">
+                  Register
+                </Button>
+              </div>
             </form>
           </Form>
         </CardContent>

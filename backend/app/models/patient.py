@@ -1,10 +1,17 @@
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, Enum
 from backend.app.database.session import Base
 from cryptography.fernet import Fernet
 import os
+from enum import Enum as PyEnum
 
 # Crea el cifrador usando la clave secreta
 cipher = Fernet(os.getenv("SECRET_KEY").encode())
+
+class TreatmentPhase(PyEnum):
+    INDUCTION = "Induction"
+    CONSOLIDATION = "Consolidation"
+    REINDUCTION = "Reinduction"
+    MAINTENANCE = "Maintenance"
 
 class Patient(Base):
     __tablename__ = "patients"
@@ -16,6 +23,7 @@ class Patient(Base):
     weight = Column(Float, nullable=False)
     height = Column(Float, nullable=False)
     body_surface_area = Column(Float, nullable=False)
+    current_phase = Column(Enum(TreatmentPhase), nullable=True)
 
     def set_id(self, plain_id: str):
         self.id = cipher.encrypt(str(plain_id).encode()).decode()

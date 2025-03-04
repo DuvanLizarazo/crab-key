@@ -28,7 +28,7 @@ const data = {
   user: {
     name: "Dr Diego Estupiñan",
     email: "diego@example.com",
-    avatar: "/avatars/dr-diego.jpg",
+    avatar: "/avatars/dr-diego.png",
   },
   
   navMain: [
@@ -99,7 +99,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
