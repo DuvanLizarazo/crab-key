@@ -2,6 +2,8 @@ from sqlalchemy.orm import Session
 from backend.app.models.patient import Patient
 from backend.app.schemas.patient import PatientCreate
 from backend.app.utils.bsa_calculator import calculate_bsa
+from backend.app.utils.treatment_plan_generator import generate_treatment_plan
+from backend.app.models.treatment_plan import TreatmentPlan
 from cryptography.fernet import Fernet
 import os
 import hashlib
@@ -14,7 +16,17 @@ def hash_id(patient_id: int) -> str:
 
 def get_patient_by_hashed_id(db: Session, patient_id: int):
     hashed_id = hash_id(patient_id)
-    return db.query(Patient).filter(Patient.id_hash == hashed_id).first()
+    patient = db.query(Patient).filter(Patient.id_hash == hashed_id).first()
+    if patient:
+        return {
+            "id": patient.get_id(),
+            "name": patient.get_name(),
+            "age": patient.age,
+            "weight": patient.weight,
+            "height": patient.height,
+            "body_surface_area": patient.body_surface_area
+        }
+    return None
 
 def create_patient(db: Session, patient: PatientCreate):
     existing_patient = get_patient_by_hashed_id(db, patient.id)
@@ -40,4 +52,7 @@ def create_patient(db: Session, patient: PatientCreate):
     db.add(db_patient)
     db.commit()
     db.refresh(db_patient)
+
     return db_patient
+
+

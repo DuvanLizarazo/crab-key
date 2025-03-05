@@ -58,8 +58,8 @@ const data = {
       icon: User,
       items: [
         {
-          title: "Search",
-          url: "#",
+          title: "Overview",
+          url: "/Patients/Overview",
         },
         {
           title: "Register",

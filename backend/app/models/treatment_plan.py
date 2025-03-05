@@ -1,13 +1,12 @@
-from sqlalchemy import Column, String, Date, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, String, Float, Integer
 from backend.app.database.session import Base
 
 class TreatmentPlan(Base):
     __tablename__ = "treatment_plans"
 
-    id = Column(String, primary_key=True, index=True, unique=True)
-    patient_id = Column(String, ForeignKey("patients.id"), nullable=False)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    patient_id = Column(String, nullable=False, index=True)
     phase = Column(String, nullable=False)
-    start_date = Column(Date, nullable=False)
-
-    patient = relationship("Patient")
+    medication = Column(String, nullable=False)
+    total_dose_mg = Column(Float, nullable=False)
+    days = Column(Integer, nullable=False)

@@ -11,8 +11,14 @@ class PatientBase(BaseModel):
 class PatientCreate(PatientBase):
     pass
 
-class PatientResponse(PatientBase):
+class PatientResponse(BaseModel):
     id: str
-
-    class Config:
-        from_attributes = True
+    name: str
+    age: int
+    weight: float
+    height: float
+    body_surface_area: float
+    current_phase: str | None = None
+    current_day: int | None = None
+    total_days: int | None = None
+    treatment: dict | None = None

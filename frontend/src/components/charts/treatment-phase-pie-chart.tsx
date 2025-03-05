@@ -22,7 +22,7 @@ const chartData = [
     { treatmentPhase: "Induction", visitors: 1, fill: "var(--color-induction)" },
     { treatmentPhase: "Consolidation", visitors: 3, fill: "var(--color-consolidation)" },
     { treatmentPhase: "Maintenance", visitors: 2, fill: "var(--color-maintenance)" },
-    { treatmentPhase: "Relapse", visitors: 5, fill: "var(--color-relapse)" },
+    { treatmentPhase: "Reinduction", visitors: 5, fill: "var(--color-relapse)" },
 ]
 
 const chartConfig = {
